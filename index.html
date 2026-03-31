@@ -755,6 +755,87 @@
       align-items: center;
     }
 
+    .inquiry-shell {
+      border: 1px solid rgba(230,228,223,0.98);
+      background: rgba(255,255,255,0.88);
+      padding: 36px;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+    }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .inquiry-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(252,251,248,1) 100%);
+      padding: 26px;
+      border: 1px solid rgba(230,228,223,0.95);
+      border-radius: 26px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-list p {
+      color: var(--primary-deep);
+      font-size: 15px;
+    }
+
+    .inquiry-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .inquiry-form label {
+      display: grid;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--text-soft);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .inquiry-form input,
+    .inquiry-form textarea {
+      width: 100%;
+      border: 1px solid rgba(230,228,223,1);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      background: rgba(255,255,255,0.96);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .inquiry-form input:focus,
+    .inquiry-form textarea:focus {
+      border-color: rgba(95,124,138,0.45);
+      box-shadow: 0 0 0 4px rgba(95,124,138,0.08);
+    }
+
+    .inquiry-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-top: 6px;
+    }
+
     .contact-shell {
       border: 1px solid rgba(230,228,223,0.98);
       background: rgba(255,255,255,0.86);
@@ -786,6 +867,9 @@
     }
 
     @media (max-width: 980px) {
+      .inquiry-grid {
+        grid-template-columns: 1fr;
+      }
       .nav-wrap {
         min-height: auto;
         padding: 18px 0;
@@ -841,7 +925,7 @@
         <a href="#services">Services</a>
         <a href="#packages">Packages</a>
         <a href="#contact">Contact</a>
-        <a class="nav-cta" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20working%20with%20you">Inquire</a>
+        <a class="nav-cta" href="#inquiry">Inquire</a>
       </nav>
     </div>
   </header>
@@ -857,7 +941,7 @@
         </p>
 
         <div class="button-row">
-          <a class="btn btn-primary" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20working%20with%20you">Work With Me</a>
+          <a class="btn btn-primary" href="#inquiry">Work With Me</a>
           <a class="btn btn-secondary" href="#services">Explore Services</a>
         </div>
 
@@ -1102,7 +1186,7 @@
               <div><span></span>Streamline appointments and scheduling flow</div>
               <div><span></span>Create a calmer weekly rhythm</div>
             </div>
-            <a class="mini-btn" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20your%20services">Get started</a>
+            <a class="mini-btn" href="#inquiry">Get started</a>
           </div>
 
           <div class="package-card featured">
@@ -1115,7 +1199,7 @@
               <div><span></span>Simple structure for key moving parts</div>
               <div><span></span>Elevated right-hand assistance</div>
             </div>
-            <a class="mini-btn" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20your%20services">Get started</a>
+            <a class="mini-btn" href="#inquiry">Get started</a>
           </div>
 
           <div class="package-card">
@@ -1127,19 +1211,77 @@
               <div><span></span>More ease, follow-through, and organization</div>
               <div><span></span>Flexible help where you need it most</div>
             </div>
-            <a class="mini-btn" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20your%20services">Get started</a>
+            <a class="mini-btn" href="#inquiry">Get started</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section" style="padding-top: 0;">
+  <section id="inquiry" class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="inquiry-shell">
+        <div class="inquiry-grid">
+          <div>
+            <div class="eyebrow">Work With Me</div>
+            <h2 class="section-title">Thanks for your interest — let’s get started.</h2>
+            <p class="section-text">
+              Whether you need polished executive support, creative project help, or dependable behind-the-scenes coordination, I’d love to hear more about what you need.
+            </p>
+
+            <div class="inquiry-card" style="margin-top: 24px;">
+              <h3 style="font-size: 28px; color: var(--primary-deep);">Contact me here</h3>
+              <div class="contact-list">
+                <p><strong>Email:</strong> liza@broomevision.com</p>
+                <p><strong>Phone:</strong> 323.920.0203</p>
+              </div>
+              <p class="form-note">Prefer email? You can also reach out directly and I’ll get back to you as soon as possible.</p>
+            </div>
+          </div>
+
+          <div class="inquiry-card">
+            <h3 style="font-size: 30px; color: var(--primary-deep); margin-bottom: 14px;">Inquiry Form</h3>
+            <form class="inquiry-form" action="mailto:liza@broomevision.com" method="post" enctype="text/plain">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required>
+              </label>
+
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </label>
+
+              <label>
+                Phone
+                <input type="text" name="phone" placeholder="Optional">
+              </label>
+
+              <label>
+                What kind of support are you looking for?
+                <input type="text" name="service" placeholder="Executive support, creative support, project help, etc.">
+              </label>
+
+              <label>
+                Tell me a little about what you need
+                <textarea name="message" placeholder="Share a few details about your project, business, or support needs."></textarea>
+              </label>
+
+              <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            </form>
+            <p class="form-note">Note: this form uses your email app to send the message. If you want a true website form that sends without opening email, you’ll need a form service or website backend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" style="padding-top: 26px;">
     <div class="container">
       <div class="contact-shell">
         <div class="contact-grid">
           <div>
-            <div class="eyebrow">Let’s connect</div>
+            <div class="eyebrow">Contact</div>
             <h2 class="section-title">Ready for more ease, more polish, and more beautifully handled support?</h2>
             <p class="section-text">
               If you need a calm, dependable right hand to help keep your schedule, business, or creative projects moving with more ease, I’d love to support you.
@@ -1147,9 +1289,9 @@
           </div>
 
           <div class="contact-card">
-            <p><strong>Email:</strong> lizabroome@gmail.com</p>
-            <p><strong>Phone:</strong> 310-498-5686</p>
-            <a class="btn btn-primary" style="margin-top: 8px;" href="mailto:lizabroome@gmail.com?subject=Interested%20in%20working%20with%20you">Inquire Now</a>
+            <p><strong>Email:</strong> liza@broomevision.com</p>
+            <p><strong>Phone:</strong> 323.920.0203</p>
+            <a class="btn btn-primary" style="margin-top: 8px;" href="#inquiry">Go to Inquiry Page</a>
           </div>
         </div>
       </div>
