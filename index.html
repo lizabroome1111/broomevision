@@ -823,19 +823,54 @@
       border-color: rgba(95,124,138,0.45);
       box-shadow: 0 0 0 4px rgba(95,124,138,0.08);
     }
-
+#submitBtn.sent {
+  background: linear-gradient(135deg, #4a7c59 0%, #3e6e4d 100%);
+  cursor: default;
+  transform: scale(0.98);
+  opacity: 0.9;
+}    
     .inquiry-form textarea {
       min-height: 150px;
       resize: vertical;
     }
 
-    .form-note {
+    .inquiry-divider {
+  height: 1px;
+  width: 100%;
+  margin: 80px 0 40px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(197,164,106,0.5),
+    transparent
+  );
+  opacity: 0.6;
+      
+    }    .form-note {
       font-size: 12px;
       color: var(--text-soft);
       line-height: 1.7;
       margin-top: 6px;
     }
 
+#form-status {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+}
+
+#form-status.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#form-status.success {
+  color: #4a7c59; /* soft luxe green */
+}
+
+#form-status.error {
+  color: #b85c5c; /* soft muted red */
+}    
     .contact-shell {
       border: 1px solid rgba(230,228,223,0.98);
       background: rgba(255,255,255,0.86);
@@ -968,10 +1003,6 @@
       </div>
 
       <div class="hero-side">
-        <div class="glass-card" style="position:relative; overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=900&q=80" alt="Minimal luxury workspace" style="width:100%; height:100%; object-fit:cover; border-radius:24px;" />
-          <div style="position:absolute; inset:0; border-radius:24px; background:linear-gradient(135deg, rgba(95,124,138,0.18), rgba(197,164,106,0.12)); mix-blend-mode: multiply; pointer-events:none;"></div>
-        </div>
         <div class="glass-card">
           <div class="feature-panel">
             <div class="feature-inner">
@@ -1222,13 +1253,14 @@
     </div>
   </section>
 
+  <div class="inquiry-divider"></div>  
   <section id="inquiry" class="section" style="padding-top: 0;">
     <div class="container">
       <div class="inquiry-shell">
         <div class="inquiry-grid">
           <div>
             <div class="eyebrow">Work With Me</div>
-            <h2 class="section-title">Thanks for your interest — let’s get started.</h2>
+           <h2 class="section-title">Let’s get started.</h2>
             <p class="section-text">
               Whether you need polished executive support, creative project help, or dependable behind-the-scenes coordination, I’d love to hear more about what you need.
             </p>
@@ -1245,63 +1277,42 @@
 
           <div class="inquiry-card">
             <h3 style="font-size: 30px; color: var(--primary-deep); margin-bottom: 14px;">Inquiry Form</h3>
-            <form class="inquiry-form" id="inquiryForm">
-              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-              <input type="hidden" name="subject" value="New inquiry from broomevision.com">
-              <input type="hidden" name="from_name" value="Broome Vision Website">
-              <input type="checkbox" name="botcheck" style="display:none;">
+           <form class="inquiry-form" id="inquiryForm">
+  <input type="hidden" name="access_key" value="7dcded13-718c-4974-b6e3-fa1a1a32e8f8">
+  <input type="hidden" name="subject" value="New inquiry from broomevision.com">
+  <input type="hidden" name="from_name" value="Broome Vision Website">
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-              <label>
-                Name
-                <input type="text" name="name" placeholder="Your name" required>
-              </label>
+  <label>
+    Name
+    <input type="text" name="name" placeholder="Your name" required>
+  </label>
 
-              <label>
-                Email
-                <input type="email" name="email" placeholder="you@example.com" required>
-              </label>
+  <label>
+    Email
+    <input type="email" name="email" placeholder="you@example.com" required>
+  </label>
 
-              <label>
-                Phone
-                <input type="text" name="phone" placeholder="Optional">
-              </label>
+  <label>
+    Phone
+    <input type="text" name="phone" placeholder="Optional">
+  </label>
 
-              <label>
-                What kind of support are you looking for?
-                <input type="text" name="service" placeholder="Executive support, creative support, project help, etc.">
-              </label>
+  <label>
+    What kind of support are you looking for?
+    <input type="text" name="service" placeholder="Executive support, creative support, project help, etc.">
+  </label>
 
-              <label>
-                Tell me a little about what you need
-                <textarea name="message" placeholder="Share a few details about your project, business, or support needs." required></textarea>
-              </label>
+  <label>
+    Tell me a little about what you need
+    <textarea name="message" placeholder="Share a few details about your project, business, or support needs." required></textarea>
+  </label>
 
-              <button class="btn btn-primary" type="submit">Send Inquiry</button>
-              <p class="form-note" id="form-status">Your message will send directly from the site once your form key is added.</p>
-            </form>
-            <p class="form-note">To activate this form, replace <strong>YOUR_WEB3FORMS_ACCESS_KEY</strong> with your free Web3Forms access key.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section" style="padding-top: 26px;">
-    <div class="container">
-      <div class="contact-shell">
-        <div class="contact-grid">
-          <div>
-            <div class="eyebrow">Contact</div>
-            <h2 class="section-title">Ready for more ease, more polish, and more beautifully handled support?</h2>
-            <p class="section-text">
-              If you need a calm, dependable right hand to help keep your schedule, business, or creative projects moving with more ease, I’d love to support you.
-            </p>
-          </div>
-
-          <div class="contact-card">
-            <p><strong>Email:</strong> liza@broomevision.com</p>
-            <p><strong>Phone:</strong> 323.920.0203</p>
-            <a class="btn btn-primary" style="margin-top: 8px;" href="#inquiry">Go to Inquiry Page</a>
+  <button class="btn btn-primary" type="submit" id="submitBtn">
+  Send Inquiry
+</button>
+  <p class="form-note" id="form-status"></p>
+</form>
           </div>
         </div>
       </div>
@@ -1309,46 +1320,52 @@
   </section>
 
   <footer>
-    Liza Broome · Concierge Support
+    Liza Broome · Concierge Support · Created by BroomeVIsion
   </footer>
+<script>
+const form = document.getElementById('inquiryForm');
+const status = document.getElementById('form-status');
+const button = document.getElementById('submitBtn');
 
-  <script>
-    const inquiryForm = document.getElementById('inquiryForm');
-    const formStatus = document.getElementById('form-status');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
 
-    if (inquiryForm) {
-      inquiryForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
+  const formData = new FormData(form);
 
-        const formData = new FormData(inquiryForm);
-        const accessKey = formData.get('access_key');
+  status.className = "form-note show";
+  status.textContent = "Sending your message...";
 
-        if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-          formStatus.textContent = 'Add your Web3Forms access key first, then this form will send without opening an email app.';
-          return;
-        }
+  button.disabled = true;
+  button.textContent = "Sending...";
 
-        formStatus.textContent = 'Sending...';
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
 
-        try {
-          const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData
-          });
+    const result = await response.json();
 
-          const result = await response.json();
+    if (result.success) {
+      status.className = "form-note show success";
+      status.textContent = "Thank you — your inquiry has been received. I’ll be in touch shortly.";
 
-          if (result.success) {
-            formStatus.textContent = 'Thanks for reaching out. Your inquiry was sent successfully.';
-            inquiryForm.reset();
-          } else {
-            formStatus.textContent = 'Something went wrong. Please try again in a moment.';
-          }
-        } catch (error) {
-          formStatus.textContent = 'Something went wrong. Please try again in a moment.';
-        }
-      });
+      button.textContent = "Sent ✓";
+      button.classList.add("sent");
+
+      form.reset();
+    } else {
+      throw new Error("Submission failed");
     }
-  </script>
+  } catch (error) {
+    status.className = "form-note show error";
+    status.textContent = "Something went wrong. Please try again.";
+
+    button.disabled = false;
+    button.textContent = "Send Inquiry";
+  }
+});
+</script>
 </body>
 </html>
+
