@@ -1275,7 +1275,6 @@
   <button class="btn btn-primary" type="submit">Send Inquiry</button>
   <p class="form-note" id="form-status">Sending through website...</p>
 </form>
-            <p class="form-note">Note: this form uses your email app to send the message. If you want a true website form that sends without opening email, you’ll need a form service or website backend.</p>
           </div>
         </div>
       </div>
@@ -1326,7 +1325,7 @@ form.addEventListener('submit', async function(e) {
     const result = await response.json();
 
     if (result.success) {
-      status.textContent = "Message sent successfully!";
+      status.textContent = "Thank you — your inquiry has been received. I’ll be in touch shortly.";
       form.reset();
     } else {
       status.textContent = "Something went wrong. Try again.";
