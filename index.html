@@ -1241,34 +1241,40 @@
 
           <div class="inquiry-card">
             <h3 style="font-size: 30px; color: var(--primary-deep); margin-bottom: 14px;">Inquiry Form</h3>
-            <form class="inquiry-form" action="mailto:liza@broomevision.com" method="post" enctype="text/plain">
-              <label>
-                Name
-                <input type="text" name="name" placeholder="Your name" required>
-              </label>
+           <form class="inquiry-form" id="inquiryForm">
+  <input type="hidden" name="access_key" value="PASTE_YOUR_KEY_HERE">
+  <input type="hidden" name="subject" value="New inquiry from broomevision.com">
+  <input type="hidden" name="from_name" value="Broome Vision Website">
+  <input type="checkbox" name="botcheck" style="display:none;">
 
-              <label>
-                Email
-                <input type="email" name="email" placeholder="you@example.com" required>
-              </label>
+  <label>
+    Name
+    <input type="text" name="name" placeholder="Your name" required>
+  </label>
 
-              <label>
-                Phone
-                <input type="text" name="phone" placeholder="Optional">
-              </label>
+  <label>
+    Email
+    <input type="email" name="email" placeholder="you@example.com" required>
+  </label>
 
-              <label>
-                What kind of support are you looking for?
-                <input type="text" name="service" placeholder="Executive support, creative support, project help, etc.">
-              </label>
+  <label>
+    Phone
+    <input type="text" name="phone" placeholder="Optional">
+  </label>
 
-              <label>
-                Tell me a little about what you need
-                <textarea name="message" placeholder="Share a few details about your project, business, or support needs."></textarea>
-              </label>
+  <label>
+    What kind of support are you looking for?
+    <input type="text" name="service" placeholder="Executive support, creative support, project help, etc.">
+  </label>
 
-              <button class="btn btn-primary" type="submit">Send Inquiry</button>
-            </form>
+  <label>
+    Tell me a little about what you need
+    <textarea name="message" placeholder="Share a few details about your project, business, or support needs." required></textarea>
+  </label>
+
+  <button class="btn btn-primary" type="submit">Send Inquiry</button>
+  <p class="form-note" id="form-status">Sending through website...</p>
+</form>
             <p class="form-note">Note: this form uses your email app to send the message. If you want a true website form that sends without opening email, you’ll need a form service or website backend.</p>
           </div>
         </div>
