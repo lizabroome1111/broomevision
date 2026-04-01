@@ -836,6 +836,24 @@
       margin-top: 6px;
     }
 
+#form-status {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+}
+
+#form-status.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#form-status.success {
+  color: #4a7c59; /* soft luxe green */
+}
+
+#form-status.error {
+  color: #b85c5c; /* soft muted red */
+}    
     .contact-shell {
       border: 1px solid rgba(230,228,223,0.98);
       background: rgba(255,255,255,0.86);
@@ -1273,7 +1291,7 @@
   </label>
 
   <button class="btn btn-primary" type="submit">Send Inquiry</button>
-  <p class="form-note" id="form-status">Sending through website...</p>
+  <p class="form-note" id="form-status"></p>
 </form>
           </div>
         </div>
@@ -1314,7 +1332,9 @@ form.addEventListener('submit', async function(e) {
   e.preventDefault();
 
   const formData = new FormData(form);
-  status.textContent = "Sending...";
+
+  status.className = "form-note show";
+  status.textContent = "Sending your message...";
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -1325,13 +1345,16 @@ form.addEventListener('submit', async function(e) {
     const result = await response.json();
 
     if (result.success) {
+      status.className = "form-note show success";
       status.textContent = "Thank you — your inquiry has been received. I’ll be in touch shortly.";
       form.reset();
     } else {
-      status.textContent = "Something went wrong. Try again.";
+      status.className = "form-note show error";
+      status.textContent = "Something went wrong. Please try again.";
     }
   } catch (error) {
-    status.textContent = "Error sending message.";
+    status.className = "form-note show error";
+    status.textContent = "Error sending message. Please try again.";
   }
 });
 </script>
