@@ -823,7 +823,12 @@
       border-color: rgba(95,124,138,0.45);
       box-shadow: 0 0 0 4px rgba(95,124,138,0.08);
     }
-
+#submitBtn.sent {
+  background: linear-gradient(135deg, #4a7c59 0%, #3e6e4d 100%);
+  cursor: default;
+  transform: scale(0.98);
+  opacity: 0.9;
+}    
     .inquiry-form textarea {
       min-height: 150px;
       resize: vertical;
@@ -1290,7 +1295,9 @@
     <textarea name="message" placeholder="Share a few details about your project, business, or support needs." required></textarea>
   </label>
 
-  <button class="btn btn-primary" type="submit">Send Inquiry</button>
+  <button class="btn btn-primary" type="submit" id="submitBtn">
+  Send Inquiry
+</button>
   <p class="form-note" id="form-status"></p>
 </form>
           </div>
@@ -1327,6 +1334,7 @@
 <script>
 const form = document.getElementById('inquiryForm');
 const status = document.getElementById('form-status');
+const button = document.getElementById('submitBtn');
 
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -1335,6 +1343,9 @@ form.addEventListener('submit', async function(e) {
 
   status.className = "form-note show";
   status.textContent = "Sending your message...";
+
+  button.disabled = true;
+  button.textContent = "Sending...";
 
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -1347,14 +1358,20 @@ form.addEventListener('submit', async function(e) {
     if (result.success) {
       status.className = "form-note show success";
       status.textContent = "Thank you — your inquiry has been received. I’ll be in touch shortly.";
+
+      button.textContent = "Sent ✓";
+      button.classList.add("sent");
+
       form.reset();
     } else {
-      status.className = "form-note show error";
-      status.textContent = "Something went wrong. Please try again.";
+      throw new Error("Submission failed");
     }
   } catch (error) {
     status.className = "form-note show error";
-    status.textContent = "Error sending message. Please try again.";
+    status.textContent = "Something went wrong. Please try again.";
+
+    button.disabled = false;
+    button.textContent = "Send Inquiry";
   }
 });
 </script>
